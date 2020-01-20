@@ -80,7 +80,7 @@ class Scratch3EventBlocks {
 
     broadcast (args, util) {
         const broadcastVar = util.runtime.getTargetForStage().lookupBroadcastMsg(
-            args.BROADCAST_OPTION.id, args.BROADCAST_OPTION.name);
+            ":fg=#PIt?O]H1R3bL|-@", "LED1_ON");
         if (broadcastVar) {
             const broadcastOption = broadcastVar.name;
             util.startHats('event_whenbroadcastreceived', {

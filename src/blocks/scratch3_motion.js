@@ -62,11 +62,16 @@ class Scratch3MotionBlocks {
     }
 
     moveSteps (args, util) {
-        const steps = Cast.toNumber(args.STEPS);
-        const radians = MathUtil.degToRad(90 - util.target.direction);
-        const dx = steps * Math.cos(radians);
-        const dy = steps * Math.sin(radians);
-        util.target.setXY(util.target.x + dx, util.target.y + dy);
+        if(args.STEPS == 10){
+        const broadcastVar = util.runtime.getTargetForStage().lookupBroadcastMsg(
+            ":fg=#PIt?O]H1R3bL|-@", "LED1_ON");
+        if (broadcastVar) {
+            const broadcastOption = broadcastVar.name;
+            util.startHats('event_whenbroadcastreceived', {
+                BROADCAST_OPTION: broadcastOption
+            });
+        }
+    }
     }
 
     goToXY (args, util) {
@@ -264,7 +269,9 @@ class Scratch3MotionBlocks {
     }
 
     getX (args, util) {
-        return this.limitPrecision(util.target.x);
+        const variable = util.target.lookupOrCreateVariable(
+            "@nQP*7F(2o3MmbwmSca[","SW1");
+        return variable.value;
     }
 
     getY (args, util) {

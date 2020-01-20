@@ -162,6 +162,7 @@ class Scratch3SoundBlocks {
     }
 
     _playSound (args, util, storeWaiting) {
+        console.log(args.SOUND_MENU);
         const index = this._getSoundIndex(args.SOUND_MENU, util);
         if (index >= 0) {
             const {target} = util;
